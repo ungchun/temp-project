@@ -77,7 +77,7 @@ class Component2Controller: UIViewController {
     }
     
     @objc func btnFilterClipAction() {
-        let bottomSheetVC = BottomSheetViewController()
+        let bottomSheetVC = TopTabBarViewController()
         bottomSheetVC.modalPresentationStyle = .overFullScreen
         present(bottomSheetVC, animated: false, completion: nil)
     }
@@ -98,7 +98,6 @@ final class BottomSheetViewController: BaseBottomSheetViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.bottomSheetView.backgroundColor = .red
-        
-        // bottomSheetView.addSubview(AnyView)
+//        bottomSheetView.addSubview()
     }
 }

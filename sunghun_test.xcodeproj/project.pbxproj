@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC700F6629443E1200289326 /* TopTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC700F6529443E1200289326 /* TopTabBarViewController.swift */; };
+		BC700F6929444DE800289326 /* CustomMenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC700F6829444DE800289326 /* CustomMenuBar.swift */; };
+		BC700F6C29444E1700289326 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC700F6B29444E1700289326 /* CustomCell.swift */; };
+		BC700F6E29444E8A00289326 /* PageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC700F6D29444E8A00289326 /* PageCell.swift */; };
 		BC90CC96293F772C00903175 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC90CC95293F772C00903175 /* AppDelegate.swift */; };
 		BC90CC98293F772C00903175 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC90CC97293F772C00903175 /* SceneDelegate.swift */; };
 		BC90CC9A293F772C00903175 /* ComponentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC90CC99293F772C00903175 /* ComponentController.swift */; };
@@ -31,6 +35,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BC700F6529443E1200289326 /* TopTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTabBarViewController.swift; sourceTree = "<group>"; };
+		BC700F6829444DE800289326 /* CustomMenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMenuBar.swift; sourceTree = "<group>"; };
+		BC700F6B29444E1700289326 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		BC700F6D29444E8A00289326 /* PageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageCell.swift; sourceTree = "<group>"; };
 		BC90CC92293F772C00903175 /* sunghun_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sunghun_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BC90CC95293F772C00903175 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BC90CC97293F772C00903175 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,6 +75,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BC700F6729444DB200289326 /* TopTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				BC700F6A29444E0100289326 /* Cells */,
+				BC700F6529443E1200289326 /* TopTabBarViewController.swift */,
+				BC700F6829444DE800289326 /* CustomMenuBar.swift */,
+			);
+			path = TopTabBar;
+			sourceTree = "<group>";
+		};
+		BC700F6A29444E0100289326 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BC700F6B29444E1700289326 /* CustomCell.swift */,
+				BC700F6D29444E8A00289326 /* PageCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		BC90CC89293F772C00903175 = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +117,7 @@
 				BC90CCA9293F77E400903175 /* TabBarController.swift */,
 				BC90CC99293F772C00903175 /* ComponentController.swift */,
 				BC96E09F2943206A005423B1 /* Component2Controller.swift */,
+				BC700F6729444DB200289326 /* TopTabBar */,
 				BC90CCAB293F780600903175 /* MapViewController.swift */,
 				BCD35DE2294080590080808D /* TableViewController.swift */,
 				BC90CC9E293F772E00903175 /* Assets.xcassets */,
@@ -233,15 +261,19 @@
 				BC90CC9A293F772C00903175 /* ComponentController.swift in Sources */,
 				BC90CCAF293F796100903175 /* ButtonFilterClip.swift in Sources */,
 				BCD35DE1294079710080808D /* CardDongneCell.swift in Sources */,
+				BC700F6E29444E8A00289326 /* PageCell.swift in Sources */,
 				BC90CCB3293F798400903175 /* CommonButton.swift in Sources */,
 				BC90CCAA293F77E400903175 /* TabBarController.swift in Sources */,
+				BC700F6C29444E1700289326 /* CustomCell.swift in Sources */,
 				BC96E09E29430166005423B1 /* YPButton.swift in Sources */,
 				BC96E0A02943206A005423B1 /* Component2Controller.swift in Sources */,
 				BC96E09C29430144005423B1 /* YPButtonStyle.swift in Sources */,
+				BC700F6929444DE800289326 /* CustomMenuBar.swift in Sources */,
 				BC90CC96293F772C00903175 /* AppDelegate.swift in Sources */,
 				BC90CCAC293F780600903175 /* MapViewController.swift in Sources */,
 				BC90CCB1293F797B00903175 /* IconFilterButton.swift in Sources */,
 				BCD35DD5294071040080808D /* BaseBottomSheetViewController.swift in Sources */,
+				BC700F6629443E1200289326 /* TopTabBarViewController.swift in Sources */,
 				BC90CC98293F772C00903175 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -144,7 +144,7 @@ class CardDongneCell: UITableViewCell {
             backView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             backView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             backView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            backView.heightAnchor.constraint(equalToConstant: 160),
+//            backView.heightAnchor.constraint(equalToConstant: 160),
         ])
     }
     

@@ -1,5 +1,5 @@
 //
-//  RadioButton.swift
+//  StarButton.swift
 //  sunghun_test
 //
 //  Created by 김성훈 on 2022/12/14.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class RadioButton: UIButton {
+final class StarButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
@@ -20,8 +20,8 @@ final class RadioButton: UIButton {
     }
     
     private func configureUI() {
-        let image = UIImage(systemName: "circle")
-        let selectedImage = UIImage(systemName: "circle.circle.fill")
+        let image = UIImage(systemName: "star")
+        let selectedImage = UIImage(systemName: "star.fill")
         
         setImage(image, for: .normal)
         setImage(selectedImage, for: .selected)

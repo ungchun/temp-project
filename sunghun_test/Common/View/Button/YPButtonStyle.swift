@@ -7,164 +7,171 @@
 
 import UIKit
 
-// CommonButton + ButtonFilterClip + IconFilterButton
-// font, color, inset 크기 등 세세한 value 들은 정해지면 수정
-
 struct YPButtonStyle {
     let configu: UIButton.Configuration
+    let titleFont: UIFont
     let selectedBackgroundColor: UIColor
     let nonSelectedBackgroundColor: UIColor
-    let titleFont: UIFont
     let selectedBaseColor: UIColor
     let nonSelectedBaseColor: UIColor
     let inset: CGFloat
+    var imagePlacement: NSDirectionalRectEdge = .all
+    var imagePointSize: Double = 1
     let imagePadding: CGFloat
     let cornerRadius: CGFloat
-    let imagePlacement: NSDirectionalRectEdge
-    let isShadow: Bool
+    var isShadow: Bool = false
+    var strokeWidth: Double = 1
 }
+
+// 컬러, 폰트사이즈 추후 값 수정
+private let tempFontSize = 16.0
+private let tempWhiteColor = UIColor.white
+private let tempBlackColor = UIColor.black
+private let tempRedColor = UIColor.red
+private let tempGrayColor = UIColor.gray
 
 extension YPButtonStyle {
     
     static let largeType = YPButtonStyle (
         configu: .tinted(),
-        // iconFilterClip 만약 선택했을 때 배경있는걸로 바꾸려면 filled로 바꾸고 색깔 바꾸기
-        selectedBackgroundColor: .white,
-        nonSelectedBackgroundColor: .white,
-        titleFont: .systemFont(ofSize: 16),
-        selectedBaseColor: .red,
-        nonSelectedBaseColor: .gray,
+        titleFont: .systemFont(ofSize: tempFontSize),
+        selectedBackgroundColor: tempWhiteColor,
+        nonSelectedBackgroundColor: tempWhiteColor,
+        selectedBaseColor: tempRedColor,
+        nonSelectedBaseColor: tempGrayColor,
         inset: 0,
         imagePadding: 0,
-        cornerRadius: 10,
-        imagePlacement: .all,
-        isShadow: false
+        cornerRadius: 10
     )
     
     static let mediumBackgroundColorType = YPButtonStyle (
         configu: .filled(),
-        selectedBackgroundColor: .red,
-        nonSelectedBackgroundColor: .red,
-        titleFont: .systemFont(ofSize: 16),
-        selectedBaseColor: .white,
-        nonSelectedBaseColor: .white,
+        titleFont: .systemFont(ofSize: tempFontSize),
+        selectedBackgroundColor: tempRedColor,
+        nonSelectedBackgroundColor: tempRedColor,
+        selectedBaseColor: tempWhiteColor,
+        nonSelectedBaseColor: tempWhiteColor,
         inset: 50,
         imagePadding: 0,
-        cornerRadius: 10,
-        imagePlacement: .all,
-        isShadow: false
+        cornerRadius: 10
     )
     
     static let mediumOpacityBackgroundColorType = YPButtonStyle (
         configu: .tinted(),
-        selectedBackgroundColor: UIColor.red.withAlphaComponent(0.3),
-        nonSelectedBackgroundColor: UIColor.red.withAlphaComponent(0.3),
-        titleFont: .systemFont(ofSize: 16),
-        selectedBaseColor: .red,
-        nonSelectedBaseColor: .red,
+        titleFont: .systemFont(ofSize: tempFontSize),
+        selectedBackgroundColor: tempRedColor.withAlphaComponent(0.3),
+        nonSelectedBackgroundColor: tempRedColor.withAlphaComponent(0.3),
+        selectedBaseColor: tempRedColor,
+        nonSelectedBaseColor: tempRedColor,
         inset: 50,
         imagePadding: 0,
-        cornerRadius: 10,
-        imagePlacement: .all,
-        isShadow: false
+        cornerRadius: 10
     )
     
     static let mediumRadiusColorType = YPButtonStyle (
         configu: .tinted(),
-        selectedBackgroundColor: .white,
-        nonSelectedBackgroundColor: .white,
-        titleFont: .systemFont(ofSize: 16),
-        selectedBaseColor: .red,
-        nonSelectedBaseColor: .red,
+        titleFont: .systemFont(ofSize: tempFontSize),
+        selectedBackgroundColor: tempWhiteColor,
+        nonSelectedBackgroundColor: tempWhiteColor,
+        selectedBaseColor: tempRedColor,
+        nonSelectedBaseColor: tempRedColor,
         inset: 50,
         imagePadding: 0,
-        cornerRadius: 10,
-        imagePlacement: .all,
-        isShadow: false
+        cornerRadius: 10
     )
-
+    
     static let smallType = YPButtonStyle (
         configu: .tinted(),
-        selectedBackgroundColor: .white,
-        nonSelectedBackgroundColor: .white,
-        titleFont: .systemFont(ofSize: 16),
-        selectedBaseColor: .red,
-        nonSelectedBaseColor: .gray,
+        titleFont: .systemFont(ofSize: tempFontSize),
+        selectedBackgroundColor: tempWhiteColor,
+        nonSelectedBackgroundColor: tempWhiteColor,
+        selectedBaseColor: tempRedColor,
+        nonSelectedBaseColor: tempGrayColor,
         inset: 40,
         imagePadding: 0,
-        cornerRadius: 10,
-        imagePlacement: .all,
-        isShadow: false
+        cornerRadius: 10
     )
     
     static let xSmallType = YPButtonStyle (
         configu: .tinted(),
-        selectedBackgroundColor: .white,
-        nonSelectedBackgroundColor: .white,
-        titleFont: .systemFont(ofSize: 16),
-        selectedBaseColor: .red,
-        nonSelectedBaseColor: .gray,
+        titleFont: .systemFont(ofSize: tempFontSize),
+        selectedBackgroundColor: tempWhiteColor,
+        nonSelectedBackgroundColor: tempWhiteColor,
+        selectedBaseColor: tempRedColor,
+        nonSelectedBaseColor: tempGrayColor,
         inset: 25,
         imagePadding: 0,
-        cornerRadius: 10,
-        imagePlacement: .all,
-        isShadow: false
+        cornerRadius: 10
     )
     
     static let xxSmallType = YPButtonStyle (
         configu: .tinted(),
-        selectedBackgroundColor: .white,
-        nonSelectedBackgroundColor: .white,
-        titleFont: .systemFont(ofSize: 16),
-        selectedBaseColor: .red,
-        nonSelectedBaseColor: .gray,
+        titleFont: .systemFont(ofSize: tempFontSize),
+        selectedBackgroundColor: tempWhiteColor,
+        nonSelectedBackgroundColor: tempWhiteColor,
+        selectedBaseColor: tempRedColor,
+        nonSelectedBaseColor: tempGrayColor,
         inset: 10,
         imagePadding: 0,
-        cornerRadius: 10,
-        imagePlacement: .all,
-        isShadow: false
+        cornerRadius: 10
     )
     
     static let buttonFilterClipType = YPButtonStyle (
         configu: .tinted(),
-        selectedBackgroundColor: .white,
-        nonSelectedBackgroundColor: .white,
-        titleFont: .systemFont(ofSize: 16),
-        selectedBaseColor: .red,
-        nonSelectedBaseColor: .gray,
+        titleFont: .systemFont(ofSize: tempFontSize),
+        selectedBackgroundColor: tempWhiteColor,
+        nonSelectedBackgroundColor: tempWhiteColor,
+        selectedBaseColor: tempRedColor,
+        nonSelectedBaseColor: tempGrayColor,
         inset: 20,
-        imagePadding: 5,
-        cornerRadius: 30,
         imagePlacement: .trailing,
-        isShadow: false
+        imagePointSize: 10,
+        imagePadding: 5,
+        cornerRadius: 30
     )
     
     static let iconFilterClipType = YPButtonStyle (
         configu: .tinted(),
-        // iconFilterClip 만약 선택했을 때 배경있는걸로 바꾸려면 filled로 바꾸고 색깔 바꾸기
-        selectedBackgroundColor: .white,
-        nonSelectedBackgroundColor: .white,
-        titleFont: .systemFont(ofSize: 16),
-        selectedBaseColor: .red,
-        nonSelectedBaseColor: .gray,
+        titleFont: .systemFont(ofSize: tempFontSize),
+        selectedBackgroundColor: tempWhiteColor,
+        nonSelectedBackgroundColor: tempWhiteColor,
+        selectedBaseColor: tempRedColor,
+        nonSelectedBaseColor: tempGrayColor,
         inset: 20,
+        imagePlacement: .leading,
+        imagePointSize: 10,
         imagePadding: 5,
         cornerRadius: 30,
-        imagePlacement: .leading,
         isShadow: true
     )
     
     static let roundType = YPButtonStyle (
         configu: .filled(),
-        selectedBackgroundColor: .white,
-        nonSelectedBackgroundColor: .black,
-        titleFont: .systemFont(ofSize: 16),
-        selectedBaseColor: .black,
-        nonSelectedBaseColor: .white,
+        titleFont: .systemFont(ofSize: tempFontSize),
+        selectedBackgroundColor: tempWhiteColor,
+        nonSelectedBackgroundColor: tempBlackColor,
+        selectedBaseColor: tempBlackColor,
+        nonSelectedBaseColor: tempWhiteColor,
         inset: 20,
+        imagePlacement: .leading,
+        imagePointSize: 10,
         imagePadding: 5,
         cornerRadius: 30,
-        imagePlacement: .leading,
         isShadow: true
+    )
+    
+    static let iconButtonType = YPButtonStyle (
+        configu: .tinted(),
+        titleFont: .systemFont(ofSize: 20),
+        selectedBackgroundColor: tempWhiteColor,
+        nonSelectedBackgroundColor: tempWhiteColor,
+        selectedBaseColor: tempRedColor,
+        nonSelectedBaseColor: tempGrayColor,
+        inset: 20,
+        imagePlacement: .top,
+        imagePointSize: 30,
+        imagePadding: 10,
+        cornerRadius: 0,
+        strokeWidth: 0.0
     )
 }

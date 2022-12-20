@@ -31,6 +31,11 @@ class TableViewController: UIViewController {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(CardDongneCell.self, forCellReuseIdentifier: CardDongneCell.identifier)
+        
+        // 최초 기본값, 처음에는 이걸로 지정되었다가 autolayout을 통해 리사이징
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 130
+        
         return tableView
     }()
     
@@ -47,6 +52,11 @@ class TableViewController: UIViewController {
             townTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
         ])
         
+        // cell height 값 지정하기위한 delegate set, rx
+        townTableView
+            .rx.setDelegate(self)
+            .disposed(by: disposeBag)
+        
         Observable.just(townModel)
             .bind(to: townTableView.rx.items) { tableView, row, item in
                 let cell = tableView.dequeueReusableCell(withIdentifier: CardDongneCell.identifier, for: IndexPath(row: row, section: 0)) as! CardDongneCell
@@ -58,5 +68,11 @@ class TableViewController: UIViewController {
                 return cell
             }
             .disposed(by: disposeBag)
+    }
+}
+
+extension TableViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 160
     }
 }

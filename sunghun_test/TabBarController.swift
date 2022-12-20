@@ -22,7 +22,8 @@ class TabBarController: UITabBarController {
         componentVC2.tabBarItem.title = "컴포넌트2"
         componentVC2.tabBarItem.image = UIImage(systemName: "square")
         
-        let mapVC = UINavigationController(rootViewController: MapViewController())
+//        let mapVC = UINavigationController(rootViewController: MapViewController())
+        let mapVC = UINavigationController(rootViewController: NaverMapViewController())
         mapVC.tabBarItem.selectedImage = UIImage(systemName: "square.fill")
         mapVC.tabBarItem.title = "맵"
         mapVC.tabBarItem.image = UIImage(systemName: "square")
@@ -32,6 +33,11 @@ class TabBarController: UITabBarController {
         tableVC.tabBarItem.title = "테이블"
         tableVC.tabBarItem.image = UIImage(systemName: "square")
         
-        viewControllers = [componentVC, componentVC2, mapVC, tableVC]
+        let collectionVC = UINavigationController(rootViewController: CollectionViewController())
+        collectionVC.tabBarItem.selectedImage = UIImage(systemName: "square.fill")
+        collectionVC.tabBarItem.title = "컬렉션"
+        collectionVC.tabBarItem.image = UIImage(systemName: "square")
+        
+        viewControllers = [componentVC, componentVC2, mapVC, tableVC, collectionVC]
     }
 }

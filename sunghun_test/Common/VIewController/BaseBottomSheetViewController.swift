@@ -14,7 +14,7 @@ class BaseBottomSheetViewController: BaseViewController {
     let bottomHeight: CGFloat = 360
     private var bottomSheetViewTopConstraint: NSLayoutConstraint!
     
-     // MARK: - Views
+    // MARK: - Views
     //
     private let dimmedBackView: UIView = {
         let view = UIView()
@@ -58,6 +58,7 @@ class BaseBottomSheetViewController: BaseViewController {
         [dimmedBackView, bottomSheetView, dismissIndicatorView].forEach {
             view.addSubview($0)
         }
+        
     }
     
     override func setupView() { }
@@ -70,9 +71,15 @@ class BaseBottomSheetViewController: BaseViewController {
             dimmedBackView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
+        let scenes = UIApplication.shared.connectedScenes
+        let windowScene = scenes.first as? UIWindowScene
+        let window = windowScene?.windows.first
+        let top = window?.safeAreaInsets.top ?? 0
+        let bottom = window?.safeAreaInsets.bottom ?? 0
+        
         let topConstant = view.safeAreaInsets.bottom + view.safeAreaLayoutGuide.layoutFrame.height
         bottomSheetViewTopConstraint = bottomSheetView.topAnchor.constraint(
-            equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topConstant
+            equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topConstant - top - bottom
         )
         NSLayoutConstraint.activate([
             bottomSheetView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
@@ -103,6 +110,22 @@ class BaseBottomSheetViewController: BaseViewController {
         let safeAreaHeight: CGFloat = view.safeAreaLayoutGuide.layoutFrame.height
         let bottomPadding: CGFloat = view.safeAreaInsets.bottom
         
+        print("UIScreen().bounds.height \(UIScreen.main.bounds.size.height)")
+        print("not safeAreaHeight \(view.safeAreaInsets.bottom)")
+        print("not safeAreaHeight \(view.safeAreaInsets.top)")
+        print("safeAreaHeight \(safeAreaHeight)")
+        
+        print("safeAreaWidth \(view.safeAreaLayoutGuide.layoutFrame.width)")
+        print("bottomPadding \(bottomPadding)")
+        print("sub \((safeAreaHeight + bottomPadding) - bottomHeight)")
+        
+        // safeAreaHeight -> 탑, 바텀 safeArea 뺀 height 값
+        // bottomPadding -> 바텀 safeArea
+        // bottomSheetViewTopConstraint -> autolayout topAnchor
+        // bottomSheetViewTopConstraint : safeAreaHeight + bottomPadding
+        // safeAreaHeight + bottomPadding -> top에서 부터 safeAreaHeight + bottomPadding 만큼 띄움, 즉 화면에 안보임
+        // 여기서 - bottomHeight -> 해주면 bottomHeight 만큼의 바텀시트가 생김
+        
         bottomSheetViewTopConstraint.constant = (safeAreaHeight + bottomPadding) - bottomHeight
         
         UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseIn, animations: {
@@ -114,6 +137,7 @@ class BaseBottomSheetViewController: BaseViewController {
     private func hideBottomSheetAndGoBack() {
         let safeAreaHeight = view.safeAreaLayoutGuide.layoutFrame.height
         let bottomPadding = view.safeAreaInsets.bottom
+        
         bottomSheetViewTopConstraint.constant = safeAreaHeight + bottomPadding
         UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseIn, animations: {
             self.dimmedBackView.alpha = 0.0

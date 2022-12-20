@@ -1,13 +1,13 @@
 //
-//  RadioButton.swift
-//  sunghun_test
+//  RadioButtonSelected.swift
+//  yapp_test_project
 //
-//  Created by 김성훈 on 2022/12/14.
+//  Created by 김성훈 on 2022/12/06.
 //
 
 import UIKit
 
-final class RadioButton: UIButton {
+final class CheckButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         translatesAutoresizingMaskIntoConstraints = false
@@ -20,8 +20,8 @@ final class RadioButton: UIButton {
     }
     
     private func configureUI() {
-        let image = UIImage(systemName: "circle")
-        let selectedImage = UIImage(systemName: "circle.circle.fill")
+        let image = UIImage(systemName: "checkmark.circle")
+        let selectedImage = UIImage(systemName: "checkmark.circle.fill")
         
         setImage(image, for: .normal)
         setImage(selectedImage, for: .selected)
